@@ -1,11 +1,13 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
+val guavaModule="33.2.1-jre"
+
 plugins {
     id ("com.github.johnrengelman.shadow")
 }
 
 dependencies {
-    implementation("com.google.guava:guava:33.2.1-jre")
+    implementation("com.google.guava:guava:$guavaModule")
 }
 
 tasks {
