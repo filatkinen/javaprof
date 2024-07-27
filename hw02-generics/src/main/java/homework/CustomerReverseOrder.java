@@ -1,5 +1,6 @@
 package homework;
 
+import java.util.ArrayDeque;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -8,19 +9,17 @@ public class CustomerReverseOrder {
 
     // todo: 2. надо реализовать методы этого класса
     // надо подобрать подходящую структуру данных, тогда решение будет в "две строчки"
-    private final SortedSet<Customer> set;
+    private final ArrayDeque<Customer> arrayDeque;
 
     public CustomerReverseOrder() {
-        set = new TreeSet<>((c1, c2) ->
-                Long.compare(c2.getScores(), c1.getScores())
-        );
+        arrayDeque = new ArrayDeque<>();
     }
 
     public void add(Customer customer) {
-        set.add(customer);
+        arrayDeque.push(customer);
     }
 
     public Customer take() {
-        return set.removeFirst();
+        return arrayDeque.pop();
     }
 }

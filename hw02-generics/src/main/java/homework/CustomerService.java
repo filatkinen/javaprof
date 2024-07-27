@@ -1,9 +1,6 @@
 package homework;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 public class CustomerService {
 
@@ -18,11 +15,19 @@ public class CustomerService {
 
     public Map.Entry<Customer, String> getSmallest() {
         // Возможно, чтобы реализовать этот метод, потребуется посмотреть как Map.Entry сделан в jdk
-        return customerStringTreeMap.firstEntry();
+        Map.Entry<Customer, String> minEntry = customerStringTreeMap.firstEntry();
+        if (minEntry != null) {
+            return new AbstractMap.SimpleEntry<>(minEntry.getKey().ShallowCopy(), minEntry.getValue());
+        }
+        return null;
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
-        return customerStringTreeMap.higherEntry(customer);
+        Map.Entry<Customer, String> nextEntry = customerStringTreeMap.higherEntry(customer);
+        if (nextEntry != null) {
+            return new AbstractMap.SimpleEntry<>(nextEntry.getKey().ShallowCopy(), nextEntry.getValue());
+        }
+        return null;
     }
 
     public void add(Customer customer, String data) {

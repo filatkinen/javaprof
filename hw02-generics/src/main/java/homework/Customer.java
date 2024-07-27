@@ -15,6 +15,10 @@ public class Customer {
         this.scores = scores;
     }
 
+    public Customer ShallowCopy(){
+        return new Customer(this.id, this.name, this.scores);
+    }
+
     public long getId() {
         return id;
     }

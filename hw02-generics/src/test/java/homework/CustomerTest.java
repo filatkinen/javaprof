@@ -79,11 +79,8 @@ class CustomerTest {
         // then
         assertThat(middleScore.getKey()).isEqualTo(customer1);
 
-        // Не уверен, что можно можно править тесты, но по другому пройти
-        // этот тест как закомментировать эти строки не понимаю как. С ними получает бесмысслица:
-        // значение score в объекте меняем, а дерево customerService об этом не знает.
-//        middleScore.getKey().setScores(1000);
-//        middleScore.getKey().setName("Vasy");
+        middleScore.getKey().setScores(1000);
+        middleScore.getKey().setName("Vasy");
 
         // when
         Map.Entry<Customer, String> biggestScore = customerService.getNext(customer1);
@@ -106,11 +103,7 @@ class CustomerTest {
 
         CustomerService customerService = new CustomerService();
         customerService.add(customer1, "Data1");
-//        Здесь также не знаю как пройти тест без данного изменения. Если положить в дерево новый объект,
-//        и изменить его поле, то что вообщем мы сравниваем в последнем assert? - понятно что  у разных объектов
-//        разные переменные Name, но одинаковые score.
-//        customerService.add(new Customer(customer2.getId(), customer2.getName(), customer2.getScores()), "Data2");
-        customerService.add(customer2, "Data2");
+        customerService.add(new Customer(customer2.getId(), customer2.getName(), customer2.getScores()), "Data2");
         customerService.add(customer3, "Data3");
 
         // when
@@ -143,12 +136,12 @@ class CustomerTest {
         Customer customerMiddle = customerReverseOrder.take();
         // then
 //        Здесь также приходится менять объекты сравнения customer2-> customer1
-        assertThat(customerMiddle).usingRecursiveComparison().isEqualTo(customer1);
+        assertThat(customerMiddle).usingRecursiveComparison().isEqualTo(customer2);
 
         // when
         Customer customerFirst = customerReverseOrder.take();
         // then
 //        Здесь также приходится менять объекты сравнения customer1 -> customer2
-        assertThat(customerFirst).usingRecursiveComparison().isEqualTo(customer2);
+        assertThat(customerFirst).usingRecursiveComparison().isEqualTo(customer1);
     }
 }
