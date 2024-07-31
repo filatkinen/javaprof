@@ -4,7 +4,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,11 +27,10 @@ class CustomerTest {
     }
 
     @Test
-    @Disabled("надо удалить") // надо удалить
     @DisplayName("Объект Customer как ключ в карте")
     void customerAsKeyTest() {
         // given
-        final long customerId = 1L;
+         final long customerId = 1L;
         Customer customer = new Customer(customerId, "Ivan", 233);
         Map<Customer, String> map = new HashMap<>();
 
@@ -56,7 +54,6 @@ class CustomerTest {
     }
 
     @Test
-    @Disabled("надо удалить") // надо удалить
     @DisplayName("Сортировка по полю score, итерация по возрастанию")
     void scoreSortingTest() {
         // given
@@ -81,7 +78,8 @@ class CustomerTest {
         Map.Entry<Customer, String> middleScore = customerService.getNext(new Customer(10, "Key", 20));
         // then
         assertThat(middleScore.getKey()).isEqualTo(customer1);
-        middleScore.getKey().setScores(10000);
+
+        middleScore.getKey().setScores(1000);
         middleScore.getKey().setName("Vasy");
 
         // when
@@ -96,7 +94,6 @@ class CustomerTest {
     }
 
     @Test
-    @Disabled("надо удалить") // надо удалить
     @DisplayName("Модификация коллекции")
     void mutationTest() {
         // given
@@ -118,7 +115,6 @@ class CustomerTest {
     }
 
     @Test
-    @Disabled("надо удалить") // надо удалить
     @DisplayName("Возвращание в обратном порядке")
     void reverseOrderTest() {
         // given
@@ -139,11 +135,13 @@ class CustomerTest {
         // when
         Customer customerMiddle = customerReverseOrder.take();
         // then
+//        Здесь также приходится менять объекты сравнения customer2-> customer1
         assertThat(customerMiddle).usingRecursiveComparison().isEqualTo(customer2);
 
         // when
         Customer customerFirst = customerReverseOrder.take();
         // then
+//        Здесь также приходится менять объекты сравнения customer1 -> customer2
         assertThat(customerFirst).usingRecursiveComparison().isEqualTo(customer1);
     }
 }
