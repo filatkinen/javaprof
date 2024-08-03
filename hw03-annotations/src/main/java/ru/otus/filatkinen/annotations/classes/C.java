@@ -5,41 +5,16 @@ import org.slf4j.LoggerFactory;
 import ru.otus.filatkinen.annotations.launcher.*;
 
 @SuppressWarnings({"java:S2133", "java:S2629"})
-@Disabled
 public class C {
     private static final Logger logger = LoggerFactory.getLogger(C.class);
 
-    @Disabled
-    //    @ThrowsException(exception = "ArithmeticException")
     public void c01() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @BeforeSuite
-    private void c02() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
-    @AfterSuite
-    public void c03() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
-    @AfterSuite
-    private void c04() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
     @Before
-    @Test(priority = 10)
     public void c05() {
         logging(
                 this.getClass().getName(),
@@ -47,7 +22,7 @@ public class C {
     }
 
     @After
-    @Test(priority = 7)
+    @Test
     private void c06() {
         logging(
                 this.getClass().getName(),
@@ -55,28 +30,28 @@ public class C {
     }
 
     @After
-    @Test(priority = 4)
+    @Test
     public void c07() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 8)
+    @Test
     private void c08() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 1)
+    @Test
     private void c09() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 9)
+    @Test
     private void c10() throws ErrorSimple {
         logging(
                 this.getClass().getName(),
@@ -85,7 +60,7 @@ public class C {
         throw new ErrorSimple();
     }
 
-    @Test(priority = 8)
+    @Test
     private void c11() {
         logging(
                 this.getClass().getName(),

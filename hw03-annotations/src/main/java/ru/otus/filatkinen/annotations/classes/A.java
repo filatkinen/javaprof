@@ -8,36 +8,21 @@ import ru.otus.filatkinen.annotations.launcher.*;
 public class A {
     private static final Logger logger = LoggerFactory.getLogger(A.class);
 
-    @Disabled
     public void a01() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @BeforeSuite
-    public void a02() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
-    @Test(priority = 10)
+    @Test
     public void a03() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @AfterSuite
-    public void a04() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
     @Before
-    @Test(priority = 10)
+    @Test
     public void a05() {
         logging(
                 this.getClass().getName(),
@@ -45,7 +30,7 @@ public class A {
     }
 
     @After
-    @Test(priority = 7)
+    @Test
     public void a06() {
         logging(
                 this.getClass().getName(),
@@ -53,28 +38,28 @@ public class A {
     }
 
     @After
-    @Test(priority = 4)
+    @Test
     public void a07() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 8)
+    @Test
     public void a08() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 1)
+    @Test
     public void a09() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 9)
+    @Test
     public void a10() throws ErrorSimple {
         logging(
                 this.getClass().getName(),
@@ -83,7 +68,7 @@ public class A {
         throw new ErrorSimple();
     }
 
-    @Test(priority = 8)
+    @Test
     public void a11() {
         logging(
                 this.getClass().getName(),

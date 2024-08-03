@@ -8,37 +8,14 @@ import ru.otus.filatkinen.annotations.launcher.*;
 public class B {
     private static final Logger logger = LoggerFactory.getLogger(B.class);
 
-    @Disabled
-    //    @ThrowsException(exception = "ArithmeticException")
     public void b01() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @BeforeSuite
-    private void b02() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
-    @AfterSuite
-    public void b03() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
-    @AfterSuite
-    private void b04() {
-        logging(
-                this.getClass().getName(),
-                new Object() {}.getClass().getEnclosingMethod().getName());
-    }
-
     @Before
-    @Test(priority = 10)
+    @Test
     public void b05() {
         logging(
                 this.getClass().getName(),
@@ -46,7 +23,7 @@ public class B {
     }
 
     @After
-    @Test(priority = 7)
+    @Test
     private void b06() {
         logging(
                 this.getClass().getName(),
@@ -54,28 +31,28 @@ public class B {
     }
 
     @After
-    @Test(priority = 4)
+    @Test
     public void b07() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 8)
+    @Test
     private void b08() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 1)
+    @Test
     private void b09() {
         logging(
                 this.getClass().getName(),
                 new Object() {}.getClass().getEnclosingMethod().getName());
     }
 
-    @Test(priority = 9)
+    @Test
     private void b10() throws ErrorSimple {
         logging(
                 this.getClass().getName(),
@@ -84,7 +61,7 @@ public class B {
         throw new ErrorSimple();
     }
 
-    @Test(priority = 8)
+    @Test
     private void b11() {
         logging(
                 this.getClass().getName(),
