@@ -87,10 +87,9 @@ public class Launcher {
             return;
         }
 
-        Object o = classLaunch.getConstructor().newInstance();
-
         int counter;
         for (MethodInstance methodLaunch : methods) {
+            Object o = classLaunch.getConstructor().newInstance();
             logger.info("");
             counter = 0;
             for (MethodInstance methodBefore : before) {
