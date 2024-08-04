@@ -31,7 +31,6 @@ public class Summator {
             someValueLast += listValues.getLast().getValue();
         }
 
-
         for (int idx = 0; idx < 3; idx++) {
             someValue += (sumLastThreeValues * sumLastThreeValues / (data.getValue() + 1) - sum);
             someValue = Math.abs(someValue) + listValues.size() + someValueLast;
