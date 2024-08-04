@@ -5,12 +5,12 @@ import java.util.List;
 
 @SuppressWarnings({"java:S125"})
 public class Summator {
-    private int sum = 0;
+    private long sum = 0;
     private int prevValue = 0;
     private int prevPrevValue = 0;
     private int sumLastThreeValues = 0;
-    private int someValue = 0;
-    private int someValueLast = 0;
+    private long someValue = 0;
+    private long someValueLast = 0;
     private final List<Data> listValues = new ArrayList<>(100_000);
 
     // !!! сигнатуру метода менять нельзя
@@ -37,23 +37,23 @@ public class Summator {
         }
     }
 
-    public Integer getSum() {
+    public long getSum() {
         return sum;
     }
 
-    public Integer getPrevValue() {
+    public long getPrevValue() {
         return prevValue;
     }
 
-    public Integer getPrevPrevValue() {
+    public long getPrevPrevValue() {
         return prevPrevValue;
     }
 
-    public Integer getSumLastThreeValues() {
+    public long getSumLastThreeValues() {
         return sumLastThreeValues;
     }
 
-    public Integer getSomeValue() {
+    public long getSomeValue() {
         return someValue;
     }
 }
