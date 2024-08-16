@@ -19,8 +19,8 @@ dependencies {
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("Calc")
-        archiveVersion.set("0.2")
+        archiveBaseName.set("DemoAtm")
+        archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {
             attributes(mapOf("Main-Class" to "ru.otus.filatkinen.atm.DemoAtm"))
