@@ -27,3 +27,4 @@ pluginManagement {
 }
 include("hw04-gc")
 include("hw05-bytecode")
+include("hw06-oop")
